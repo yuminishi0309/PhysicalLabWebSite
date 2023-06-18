@@ -1,0 +1,63 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+//スライドメニュー & ハンバーガーメニュー  --------
+
+.rotate {
+    &Top {
+        transform: rotate(45deg);
+    }
+    &Bottom {
+        transform: rotate(-45deg);
+    }
+}
+.translateNav {
+    transform: translateX(0);
+}
+
+//ヘッダー色変更  -----------------------------
+.changeHeader {
+    padding: 20px 36px 16px;
+    background: $white;
+}
+.changeLogo {
+    color: $black;
+}
+//ボタン色変更
+.changeColorLink {
+    background: $white;
+    color: $black;
+    border: 1px solid $black;
+    &:hover {
+        background: $black;
+        color: $white;
+    }
+}
+.changeColorMenu {
+    border: 1px solid $black;
+    &::before {
+        background: $black;
+    }
+}
+.changeColorLine {
+    background: $black;
+}
+
+//  フェードアップ-----------------------------
+.fadeUp {
+    position: relative;
+    top: 10px;
+    opacity: 0;
+}
+.fadeUpAuto {
+    position: relative;
+    top: 50px;
+    opacity: 0;
+}
+.showElement {
+    top: 0;
+    opacity: 1;
+}
+
+

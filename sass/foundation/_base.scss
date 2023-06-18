@@ -1,0 +1,12 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+// baseファイルはサイトの基本的な設定などを行います
+body {
+    font-family: $sans;
+    font-weight: 400;
+    font-size: 12px;
+    color: $black;
+    background: #fff;
+}

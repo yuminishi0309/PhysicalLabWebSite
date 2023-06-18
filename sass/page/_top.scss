@@ -1,0 +1,543 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+    // メインビジュアル  -----------------------------
+    .mv__wrapper {
+        position: relative;
+        overflow: hidden;
+        // ↑ ズームアウト用：拡大した画像を隠す
+    }
+    //mvズームアウト登録
+    @keyframes zoomOut {
+        0% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    //catch fadeUp登録
+    @keyframes fadeUp {
+        0% {
+            transform: translateY(24px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    .mv {
+        width: 100%;
+        height: 100vh;
+        background: url(../images/mv.jpg) center bottom / cover;
+        animation: zoomOut 1.5s ease-out;
+
+        &__container {
+            position: absolute;
+            top: 74%;
+            left: 34px;
+            color: $white;
+            font-weight: 700;
+        }
+        &__catch {
+            margin-bottom: 6px;
+            font-family: $roboto;
+            font-size: 60px;
+            &--01 {
+                display: block;
+                animation: fadeUp 1s 1.5s backwards;
+            }
+            &--02 {
+                display: block;
+                animation: fadeUp 1s 2.5s backwards;
+            }
+            
+        }
+        &__sub {
+            font-size: 24px;
+            animation: fadeUp 1s 4.2s ease-out backwards;
+        }
+    }
+
+    //ABOUTセクション  -----------------------------
+    .about {
+        display: flex;
+        justify-content: center;
+        gap: 68px;
+        padding-top: 160px;
+        margin-bottom: 160px;
+            
+        &__box {
+            width: 448px;
+        }
+        &__ttl {
+            position: relative;
+            margin-bottom: 206px;
+            font-family: $roboto;
+            font-weight: 700;
+            transition: .8s;
+            &::before {
+                display: block;
+                content: "";
+                width: 100%;
+                height: 1px;
+                margin-bottom: 10px;
+                background: $black;
+            }
+            &::after {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: block;
+                content:"01";
+            }
+        }
+        &__sub {
+            margin-bottom: 57px;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.333;
+            transition: .8s;
+        }
+        &__txt {
+            margin-bottom: 24px;
+            font-weight: 400;
+            line-height: 2;
+            transition: .8s;
+            &:nth-of-type(4) {
+                margin-bottom: 69px;
+            }
+        }
+        &__link {
+            position: relative;
+            display: inline-block;
+            padding-left: 56px;
+            font-weight: 500;
+            color: $white;
+            mix-blend-mode: difference;
+            text-decoration: none;
+            transition: .8s;
+            &::before {
+                mix-blend-mode: difference;
+                position: absolute;
+                top: -10px;
+                left: 0;
+                display: block;
+                content:"";
+                width: 36px;
+                height: 36px;
+                background: $white;
+                border-radius: 50%;
+                transform: scale(1);
+                transition: .4s;
+            }
+            &:hover {
+                &::before {
+                transform: scale(3);
+                }
+            }
+            &::after {
+                position: absolute;
+                bottom: -2px;
+                left: 60;
+                display: block;
+                content:"";
+                width: 60px;
+                height: 1px;
+                background: $white;
+                mix-blend-mode: difference;
+            }
+        }
+        &__pic {
+            width: 448px;
+            height: 704px;
+        }
+        &__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    //サブビジュアル　スワイパー  --------------------
+    .swiper-sv {
+        &__slide {
+            width: 480px;
+            height: 432px;
+        }
+        &__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    //STAFFセクション  -----------------------------
+    .staff {
+        display: flex;
+        justify-content: center;
+        gap: 68px;
+        padding-top: 160px;
+        margin-bottom: 160px;
+
+        &__box {
+            width: 448px;
+        }
+        &__ttl {
+            position: relative;
+            margin-bottom: 82px;
+            font-family: $roboto;
+            font-weight: 700;
+            transition: .8s;
+            &::before {
+                display: block;
+                content:"";
+                width: 100%;
+                margin-bottom: 10px;
+                height: 1px;
+                background: $black;
+            }
+            &::after {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: block;
+                content:"02"
+            }
+        }
+        &__sub {
+            margin-bottom: 28px;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.333;
+            transition: .8s;
+        }
+        &__txt {
+            margin-bottom: 24px;
+            font-weight: 400;
+            line-height: 2;
+            transition: .8s;
+            &:nth-of-type(3){
+                margin-bottom: 77px;
+            }
+        }
+        &__link {
+            position: relative;
+            display: inline-block;
+            padding-left: 56px;
+            font-weight: 500;
+            color: $white;
+            mix-blend-mode: difference;
+            text-decoration: none;
+            transition: .8s;
+            &::before {
+                mix-blend-mode: difference;
+                position: absolute;
+                top: -10px;
+                left: 0;
+                display: block;
+                content:"";
+                width: 36px;
+                height: 36px;
+                background: $white;
+                border-radius: 50%;
+                transform: scale(1);
+                transition: .4s;
+            }
+            &:hover {
+                &::before {
+                transform: scale(3);
+                }
+            }
+            &::after {
+                position: absolute;
+                bottom: -2px;
+                left: 60;
+                display: block;
+                content:"";
+                width: 60px;
+                height: 1px;
+                background: $white;
+                mix-blend-mode: difference;
+            }
+        }
+        &__pic {
+            width: 448px;
+            height: 464px;
+        }
+        &__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    //COURSEセクション  -----------------------------
+    .course {
+        display: flex;
+        justify-content: center;
+        padding: 160px 0;
+        background: $black;
+        color: $white;
+
+        &__wrapper {
+            width: 960px;
+        }
+        &__ttl {
+            position: relative;
+            margin-bottom: 72px;
+            font-family: $roboto;
+            font-weight: 700;
+            transition: .8s;
+            &::before {
+                // top: 0;
+                // left: 0;
+                display: block;
+                content:"";
+                width: 100%;
+                height: 1px;
+                margin-bottom: 10px;
+                background: $white;
+            }
+            &::after {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: block;
+                content:"03";
+                // color: $white;
+            }
+        }
+        &__sub {
+            margin-bottom: 82px;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.333;
+            transition: .8s;
+        }
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 88px;
+        }
+        &__box {
+            display: flex;
+            flex-direction: column;
+            padding: 26px 16px 22px;
+            width: 296px;
+            height: 384px;
+            border: 1px solid $white;
+            cursor: pointer;
+            transition: .8s;
+            &:hover {
+                background: $white;
+                color: $black;
+            }
+        }
+        &__course--eng {
+            margin-bottom: 8px;
+            font-family: $roboto;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        &__course--jpn {
+            margin-bottom: 28px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        &__desc {
+            height: 100%;
+        }
+        &__list {
+            line-height: 2;
+            list-style-type: none;
+            margin-left: 1em;
+            text-indent: -1em;
+        }
+        &__unit {
+            display: flex;
+            font-family: $roboto;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.33;
+        }
+        &__time {
+            width: 60px;
+        }
+        &__span {
+            font-size: 11px;
+        }
+        &__link {
+            position: relative;
+            display: inline-block;
+            padding-left: 56px;
+            font-weight: 500;
+            color: $white;
+            mix-blend-mode: difference;
+            text-decoration: none;
+            transition: .8s;
+            &::before {
+                mix-blend-mode: difference;
+                position: absolute;
+                top: -10px;
+                left: 0;
+                display: block;
+                content:"";
+                width: 36px;
+                height: 36px;
+                background: $white;
+                border-radius: 50%;
+                transform: scale(1);
+                transition: .4s;
+            }
+            &:hover {
+                &::before {
+                transform: scale(3);
+                }
+            }
+            &::after {
+                position: absolute;
+                bottom: -2px;
+                left: 60;
+                display: block;
+                content:"";
+                width: 60px;
+                height: 1px;
+                background: $white;
+                mix-blend-mode: difference;
+            }
+        }
+    }
+    //モーダル部分------------
+    .modal {
+        &__container01,
+        &__container02,
+        &__container03  {
+            display: none;
+            // ↑同時にdisplay flex使えないので外と内で箱を分ける
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: hsla(0, 0%, 10%, 0.9);
+            // color: $white;
+        }
+        &__wrap--outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        &__wrap--inner {
+            display: flex;
+            gap: 68px;
+        }
+        &__pic {
+            width: 448px;
+            height: 464px;
+        }
+        &__img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        &__box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 448px;
+        }
+        &__ttl {
+            margin-bottom: 76px;
+            font-family: $roboto;
+            font-size: 20px;
+            font-weight: 700;
+            &::before {
+                display: block;
+                content: "";
+                width: 100%;
+                height: 1px;
+                margin-bottom: 8px;
+                background: $white;
+            }
+        }
+        &__txt {
+            margin-bottom: 24px;
+            line-height: 2;
+        }
+        &__unit {
+            &--outer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                // &:last-child {
+                //     align-self: flex-end;
+                // }
+                // ↑ こんな感じでcolumnにしたときの交差軸整列?justifyのようなことはできないのか　なぜ
+            }
+            &--inner{
+                display: flex;
+                font-family: $roboto;
+                font-size: 18px;
+                line-height: 1.33;
+            }
+        }
+        &__time {
+            width: 52px;
+        }
+        &__span {
+            font-size: 11px;
+        }
+    }
+    //ACCESSセクション  -----------------------------
+    .access {
+        width: 960px;
+        padding-top: 160px;
+        margin: 0 auto 160px;
+
+        &__ttl {
+            position: relative;
+            margin-bottom: 67px;
+            font-family: $roboto;
+            font-weight: 700;
+            &::before {
+                display: block;
+                content:"";
+                width: 100%;
+                height: 1px;
+                margin-bottom: 10px;
+                background: $black;
+            }
+            &::after {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: block;
+                content:"04";
+            }
+        }
+        &__container {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__sub {
+            margin-right: 88px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        &__dl {
+            line-height: 2;
+        }
+        &__wrap {
+            display: flex;
+            margin-bottom: 7px;
+        }
+        &__dt {
+            width: 48px;
+            margin-right: 50px;
+            font-weight: 700;
+        }
+    }
+}
