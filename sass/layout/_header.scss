@@ -81,7 +81,6 @@
             height: 36px;
             background: $white;
             pointer-events: none;
-
         }
     }
     &__top,
@@ -92,10 +91,6 @@
         height: 1px;
         background: $white;
         transition: .3s;
-        // transition: transform .3s;
-        // ↑Header色変更/SlideMenuの両者でtransition効くので、
-        // SlideMenuのtransform時のみに設定
-        
     }
     &__top {
         transform: translateY(-5px);
@@ -103,5 +98,4 @@
     &__bottom {
         transform: translateY(5px)
     }
-
 }

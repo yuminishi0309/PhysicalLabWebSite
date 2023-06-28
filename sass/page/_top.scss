@@ -292,8 +292,6 @@
             font-weight: 700;
             transition: .8s;
             &::before {
-                // top: 0;
-                // left: 0;
                 display: block;
                 content:"";
                 width: 100%;
@@ -307,7 +305,6 @@
                 right: 0;
                 display: block;
                 content:"03";
-                // color: $white;
             }
         }
         &__sub {
@@ -416,13 +413,11 @@
         &__container02,
         &__container03  {
             display: none;
-            // ↑同時にdisplay flex使えないので外と内で箱を分ける
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background: hsla(0, 0%, 10%, 0.9);
-            // color: $white;
         }
         &__wrap--outer {
             display: flex;
@@ -472,10 +467,6 @@
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                // &:last-child {
-                //     align-self: flex-end;
-                // }
-                // ↑ こんな感じでcolumnにしたときの交差軸整列?justifyのようなことはできないのか　なぜ
             }
             &--inner{
                 display: flex;
